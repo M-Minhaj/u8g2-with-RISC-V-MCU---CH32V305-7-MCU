@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//Core/core_riscv.c=GBK
+encoding//Debug/debug.c=GBK
+encoding//Peripheral/inc/ch32v30x_i2c.h=GBK
+encoding//Peripheral/src/ch32v30x_i2c.c=GBK
+encoding//Startup/startup_ch32v30x_D8C.S=GBK
+encoding//User/main.c=GBK
+encoding//User/u8g2.h=GBK
+encoding//User/u8g2/u8g2_d_setup.c=GBK
+encoding//User/u8g2/u8g2_font.c=GBK
+encoding//User/u8g2/u8x8_8x8.c=GBK
+encoding//User/u8g2/u8x8_byte.c=GBK
+encoding//User/u8g2/u8x8_cad.c=GBK
+encoding//User/u8g2/u8x8_d_ssd1306_128x64_noname.c=GBK
+encoding//User/u8g2/u8x8_display.c=GBK
+encoding//User/u8g2/u8x8_gpio.c=GBK
+encoding//User/u8x8.h=GBK
