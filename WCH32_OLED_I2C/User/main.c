@@ -186,7 +186,7 @@ int main(void)
  u8g2_ClearBuffer(&u8g2);
  u8g2_SetFont(&u8g2, u8g2_font_fub14_tf);
 
- u8g2_DrawStr(&u8g2,2,30,"Starting");
+ u8g2_DrawStr(&u8g2,2,30,"Hello World");
 
 
  u8g2_SendBuffer(&u8g2);
