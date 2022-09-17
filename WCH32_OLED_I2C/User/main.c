@@ -12,8 +12,8 @@
 
 I2C CH_1
 Pins
-I2C1_SCL(PB8)¡¢
-I2C1_SDA(PB9)¡£
+I2C1_SCL(PB8)Â¡Â¢
+I2C1_SDA(PB9)Â¡Â£
 
 */
 #include <stdio.h>
@@ -40,17 +40,7 @@ I2C1_SDA(PB9)¡£
 #define TX_TIMEOUT		100
 
 
-float vol=230.1;
-float cur = 3.22;
-float pf = 0.8;
-float pw = 980.4;
-float unit = 132.4;
 
-char vol_buffer[10];
-char cur_buffer[10];
-char pf_buffer[10];
-char pow_buffer[10];
-char unit_buffer[10];
 
 
 
@@ -130,10 +120,10 @@ uint8_t u8g2_gpio_and_delay_stm32(U8X8_UNUSED u8x8_t *u8x8, U8X8_UNUSED uint8_t 
 }
 
 
+ 
 
 
-
-uint8_t u8x8_byte_stm32_hw_i2c(u8x8_t *u8g2, uint8_t msg, uint8_t arg_int, void *arg_ptr)
+uint8_t u8x8_byte_wch32_hw_i2c(u8x8_t *u8g2, uint8_t msg, uint8_t arg_int, void *arg_ptr)
 {
 	// u8g2/u8x8 will never send more than 32 bytes between START_TRANSFER and END_TRANSFER
 //	 add extra byte for the i2c address
@@ -189,7 +179,7 @@ int main(void)
  printf("SystemClk:%d\r\n", SystemCoreClock);
  #if(I2C_MODE == HOST_MODE)
  printf("IIC Host mode\r\n");
- u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0,u8x8_byte_stm32_hw_i2c,u8g2_gpio_and_delay_stm32);
+ u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0,u8x8_byte_wch32_hw_i2c,u8g2_gpio_and_delay_stm32);
 
  u8g2_InitDisplay(&u8g2); // send init sequence to the display, display is in sleep mode after this,
  u8g2_SetPowerSave(&u8g2,0);
@@ -207,62 +197,7 @@ int main(void)
         while(1)
         {
 
-            vol=230.32;
-
-            int p=230;
-
-        	sprintf(vol_buffer,"%5.1f",vol);
-
-        	sprintf(cur_buffer,"%-5.2f",cur);
-        	sprintf(pf_buffer,"%-3.1f",pf);
-        	sprintf(pow_buffer,"%-5.2f",pw);
-        	sprintf(unit_buffer,"%-5.0f",unit);
-
-
-        	u8g2_ClearBuffer(&u8g2);
-        	u8g2_SetFont(&u8g2, u8g2_font_fub14_tf);
-        	u8g2_DrawStr(&u8g2,15,25,"Voltage(V)");
-        	u8g2_DrawStr(&u8g2,30,50,vol_buffer);
-        	u8g2_SendBuffer(&u8g2);
-
-        	Delay_Ms(3000);
-
-        	u8g2_ClearBuffer(&u8g2);
-        	u8g2_DrawStr(&u8g2,15,25,"Current(I)");
-        	u8g2_DrawStr(&u8g2,30,50,cur_buffer);
-        	u8g2_SendBuffer(&u8g2);
-
-        	Delay_Ms(3000);
-
-
-        	u8g2_ClearBuffer(&u8g2);
-        	u8g2_DrawStr(&u8g2,5,25,"Power Factor");
-            u8g2_DrawStr(&u8g2,30,50,pf_buffer);
-        	u8g2_SendBuffer(&u8g2);
-
-        	Delay_Ms(3000);
-
-        	u8g2_ClearBuffer(&u8g2);
-        	u8g2_DrawStr(&u8g2,15,25,"Power(kW)");
-            u8g2_DrawStr(&u8g2,30,50,pow_buffer);
-        	u8g2_SendBuffer(&u8g2);
-
-        	Delay_Ms(3000);
-
-        	u8g2_ClearBuffer(&u8g2);
-        	u8g2_DrawStr(&u8g2,20,25,"Units");
-            u8g2_DrawStr(&u8g2,30,50,unit_buffer);
-        	u8g2_SendBuffer(&u8g2);
-
-        	Delay_Ms(3000);
-
-
-
-
-
-
-
-
+           
 
         }
 
